@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <cmath>
 #include "function.h"
+#include <cstdlib>
+#include <ctime>
 
 int main(int argc, const char * argv[]) {
     //Initializing and declarating the variables
@@ -11,8 +13,11 @@ int main(int argc, const char * argv[]) {
     x = 0;
     y = 0;
     
+    srand((unsigned)time(0));
+    double degree;
+    degree = rand()%90 + 1;
     double angle;
-    angle = degreeToRadian(33.0);
+    angle = degreeToRadian(degree);
     
     double iniV = 250.0;// initial velocity of the muzzle when it fire
     
@@ -32,7 +37,7 @@ int main(int argc, const char * argv[]) {
     double v;
     double d;
     
-    
+    /**
     v = getVelocity(vx, vy);//velocity
     d = getDrag(dc, A, p, v, m);//drag
     ax = getXAcceleration(d, vx, v);
@@ -41,6 +46,7 @@ int main(int argc, const char * argv[]) {
     vy = getYVelocity(vy, ay, t);
     x = getX(x, vx, t);
     y = getY(y, vy, t);
+     */
     
     int counter =1;
     while (counter ==1){
@@ -63,5 +69,6 @@ int main(int argc, const char * argv[]) {
     }
     
     printf("\nTherefore, when time is at %.2f second, then the cannon ball will be on the ground at %.2f meters away\n", t, x);
+    printf("when the angle of the cannon is %.2f degree\n", degree);
 
 }
