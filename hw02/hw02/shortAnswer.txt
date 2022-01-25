@@ -1,0 +1,22 @@
+Pete Chee Zachraias
+Homework 2: Chapter 3
+2, 3, 4, 5, 8
+
+2. What is the difference between a function declaration and a function definition?
+•	Function declaration is to initialize a function before defining it or using it. Function definition is the block of code of the initialized function that when the function is called in a class, it will go to the function definition and go through it and return a value.
+•	Basically, Function declaration is the creation of a function or initializing it and the definition function is the part of the function that returns a value.
+
+3. Why does C/C++ need to have function declarations? Why doesn’t Java have them?
+•	C++ need function declaration because it tells the compiler that there is a function with an argument and a data type. C++ is a modification of an old language called C and it is not an object-oriented language.
+•	The compiler for C++ does only one pass and not two pass like the Java compiler. The C++ compiler read throughout the code and will try to read or use a function or method without knowing it. For the Java compiler, it will read through every method, function, name, argument, etc. and that is the first pass. The second pass, it will read through it again and see if everything matches. Hence, why C++ need function declaration before defining a function.
+
+4. What is the C preprocessor, and what does it do? 
+•	The preprocessor is a tool in the C/C++ that try to modify the code before it is compile. The usage of preprocessor is to define, include, or do if statement in the code. The include line is telling the preprocessor to go to a filename and include that in the code. The define line is to define a variable that is not in the C/C++ code. The preprocessor is usually called at #. When there is a #, the preprocessor will look at that line and will modify the code with that.
+
+5. What do you use header files for?
+•	The header files is one way to optimize a time of coding. The Header files can be use to store all of the function that can be use in multiple file. The difference about the header files is that its extension is .h hence the name header. There are time that creating a function or method in a .cc file and want to use the same function or method in another .cc file, it can be time extended to create the same function or method in a different .cc file. Using the header file, you can use the preprocessor to include the header file in a .cc file and define the function or method.
+
+8. Suppose you have the following: 
+      #define MAX_VALUE 32767
+      Is MAX VALUE a variable? If not, what is it?
+•	It is not a C/C++ variable, but it is a constant that was define by the preprocessor. The MAX_VALUE is a constant that is equal to 32767.

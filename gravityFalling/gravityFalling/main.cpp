@@ -24,11 +24,11 @@ int main(int argc, const char * argv[]) {
 
     //while loop of the falling
     while (y >= 0.0){
-        a = -g+(0.5*C*A*p*(pow(v,2.0)/m));
+        a = g+(0.5*C*A*p*(pow(v,2.0)/m));
         time += dt;
         
         v = v+a*dt; //change in velocity
-        y = y-v*dt; //change in position or height of the object
+        y = y+v*dt; //change in position or height of the object
         printf("%.2lf m %.2lf sec\n", y, time);
     }
     printf("\nFinal : %.2lf sec\n",  time);
