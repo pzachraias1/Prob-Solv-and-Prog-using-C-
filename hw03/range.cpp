@@ -27,7 +27,7 @@ double degreeToRadian (double angle){
     return rad;
 }
 
-void distHeight(double degree){
+void distHeight(double degree, double *ptrMax, double *ptrDistance){
     
     vx = 0;
     vy = 0;
@@ -73,9 +73,8 @@ void distHeight(double degree){
             counter++;
         }
     }
-    printf("Angle: %.2f\n", degree);
-    printf("Distance: %.2f\n", x);
-    printf("Max Height: %.2f\n\n", max);
+    *ptrMax = max;
+    *ptrDistance = x;
     
 }
 

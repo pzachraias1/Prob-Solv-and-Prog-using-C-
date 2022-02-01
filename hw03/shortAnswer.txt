@@ -1,0 +1,48 @@
+Pete Chee Zachraias
+Homework 3: Chapter 4
+1, 9, 12, 14, 15
+
+1. What is a pointer? What is the closest thing to a pointer in Java?
+Pointer is a holder for a memory address. The closest thing Java has to pointer is an array.
+9. Describe what each of the following declare:
+(a) int* a;
+Declaration of an integer that is a pointer
+(b) const int b;
+It is an integer that is constant. Meaning that integer b is unable to be modify, it will remain as its initial value
+(c) const int* c;
+Pointer c, is constant. Meaning that the memory address holder cannot be modify.
+(d) int* const d;
+The integer is constant, and the pointer is not constant. Meaning that the variable d cannot be modify but the pointer can be modified.
+(e) const int* const e; 
+Both the integer variable and the pointer are constant. Meaning that both the integer and pointer cannot be modify.
+	
+12. This code computes both the square and cube of a number. What is wrong with it and, how would you fix it? 
+	double* powers(double x, double* x3_ptr) {
+    	   double x2 = x*x;
+      	   *x3_ptr = x2*x;
+     	  return &x2;
+}
+
+The problem is that we are returning a pointer, it is wiser to initialize a pointer before putting it in a function, because if it goes out of scope, then it will be deleted. 
+
+To fix this problem, we’ll have to initialize the pointer. Since the pointer is being return by the function, if it is out of the scope, then the function is returning a pointer to a memory that is no longer there or vaild.
+
+14. Sometimes when you call this function, you get a seg fault. In what line is the seg fault occurring? 
+    void twitchy(int in, int* out) {
+        int sum = 0;
+        for(int i=0; i<n; ++i) {
+            if(i%2) sum + 5;
+            else    sum /= 2;
+        }
+*out = sum; }
+
+The seg fault is at the for loop, since the integer n has not been initialized and declare, it is going to skip the for loop and straight down to *out = sum.
+
+15. The following code does not compile. What is wrong and how would you fix it? 
+    int n = -1;
+    scanf("%d", n);
+
+the n should be &n. should not use the value as an address. N is a value while &n is the address
+
+
+
