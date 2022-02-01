@@ -1,26 +1,25 @@
 #include "function.h"
 #include <cmath>
 
+double x, vx, ax; //the displacement, velocity, and acceleration of horizontal axis
+double y, vy, ay;
+
+double iniV;
+double angle;
+
+double t;// counter for the time
+double  dt;// the amount of sec that time change or increae
+
+double m; //mass of the object that is being thrown or fired
+double dc; //drag coefficient
+double A; // area of the object
+double p;// density of the air
+double g;
+double v;
+double d;
+int counter;
 
 double range(double degree){
-    
-    double x, vx, ax; //the displacement, velocity, and acceleration of horizontal axis
-    double y, vy, ay;
-
-    double iniV;
-    double angle;
-
-    double t;// counter for the time
-    double  dt;// the amount of sec that time change or increae
-
-    double m; //mass of the object that is being thrown or fired
-    double dc; //drag coefficient
-    double A; // area of the object
-    double p;// density of the air
-    double g;
-    double v;
-    double d;
-    int counter;
     
     // double x, vx, ax; //the displacement, velocity, and acceleration of horizontal axis
     // double y, vy, ay; //displacement, celocity, and acceleration of the vertical axis
@@ -31,7 +30,7 @@ double range(double degree){
      
      iniV = 250.0;// initial velocity of the muzzle when it fire
      
-     angle = degreeToRadian(degree);
+    angle = degree*(M_PI/180.0);
      
      
       t = 0.0;// counter for the time
