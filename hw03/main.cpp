@@ -22,6 +22,10 @@ int main(int argc, const char * argv[]) {
         
         distHeight(angle, &max, &distance);
 
+        printf("Angle: %.2f\n",angle);
+        printf("Max Height: %.2f meters\n", *ptrMax);
+        printf("Distance: %.2f meters\n\n", *ptrDistance);
+        
         fprintf(fp, "Angle: %.2f\n",angle);
         fprintf(fp, "Max Height: %.2f meters\n", *ptrMax);
         fprintf(fp, "Distance: %.2f meters\n\n", *ptrDistance);
@@ -30,5 +34,7 @@ int main(int argc, const char * argv[]) {
     }
     
     fclose(fp);
+    
+    printf("Everything has been added to Cannon_Angle_Guide.txt\n\n");
     
 }
