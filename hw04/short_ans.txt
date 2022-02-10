@@ -1,0 +1,43 @@
+
+Pete Chee Zachrais
+Homework 4: Chapter 5
+1, 3, 5, 6 , and 8
+
+1. Describe the difference between how Java and C++ handle arrays.
+
+There are 3 differences in Java and C++ in term of array. Java array are object while C/C++ are memories. Java’s arrays are much easier to used since the java array holds the length, data, and it check if the array is out of scoop or not. C/C++ does not check if the array is out of scoop. C arrays array tedious since you have to place a null terminator at the end of the array. Or to specific where the end is at. Also, when passing it to a method, it is better to pass the length of the array.
+
+3. Suppose you have a variable declared like this:
+int* n;
+Can you pass n to a function declared like this: void f(const int* b);
+Why or why not?
+
+Yes, n can be pass into the function, why? Because Professor Edward Pier said so.
+It can be pass, but it cannot be modified inside the method. The constant that is inside the argument, it is there to kind of let us know that it won’t be modify.
+
+5. Suppose you have a function that takes an array as an argument in the usual way, which is declared as:
+void f(int* array, int length);
+Suppose you also have an array declared as:
+int a[128];
+How would you pass a sub-array containing only the third through sixth elements of a to the
+function f?
+
+f(a, 128);
+
+6. What is wrong with the following code, and how would you fix it?
+  char copy[8];
+  const char* string = "hello";
+  for(int i=0; string[i] != ’\0’; ++i) {
+      copy[i] = string[i];
+  }
+  printf("%s\n", copy);
+
+there is nothing wrong with the code. Since, inside the for loop, the “string[i]!=’\0’” is showing that end the loop when there is no more value or when the string reach a null terminated, end the loop
+
+8. What is wrong with the following code and how would you fix it?
+    double* allocateArray(int length) {
+        double array[length];
+        return array;
+}
+
+The array inside the function will go out of scoop. To fix it, I would change the inside of the function to return a new array
