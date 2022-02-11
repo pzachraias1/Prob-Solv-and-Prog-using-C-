@@ -31,7 +31,7 @@ void wavReader (const char* filename){
         
         fourcc[4] = '\0';
         
-        printf("%s\n",fourcc);
+        printf("\n%s\n",fourcc);
         
         if (!strncmp(fourcc, "fmt ", 4)){
             unsigned short format = *((short*)(content+0));
@@ -50,7 +50,7 @@ void wavReader (const char* filename){
 
         if (!strncmp(fourcc, "data", 4)){
             int contentData = *((int*)(content));
-            printf("%d", contentData);
+            printf("%d\n", contentData);
         }
 
     }
@@ -61,7 +61,7 @@ void wavReader (const char* filename){
 
 int main(int argc, const char * argv[]) {
     
-    char filename[]="taunt.wav";
+    char filename[]="sample.wav";
     
     wavReader(filename);
     printf("\n");
