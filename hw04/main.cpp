@@ -9,7 +9,7 @@ unsigned int subSize;
 
 void wavReader (const char* filename){
     
-    FILE* f = fopen(filename, "r");
+    FILE* f = fopen(filename, "rb");
     
     //header
     fread(fourcc, sizeof(char), 4, f);
