@@ -5,6 +5,6 @@ double range(double degree);
 
 double degreeToRadian (double angle);
 
-void distHeight(double angle, double *ptrMax, double *ptrDistance);
+void coordinate(double angle, char** c, double factor);
 
 #endif

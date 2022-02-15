@@ -27,7 +27,7 @@ double degreeToRadian (double angle){
     return rad;
 }
 
-void distHeight(double degree, double *ptrMax, double *ptrDistance){
+void coordinate(double degree, char** c, double factor){
     
     vx = 0;
     vy = 0;
@@ -50,8 +50,6 @@ void distHeight(double degree, double *ptrMax, double *ptrDistance){
     
     vx = iniV*cos(angle);
     vy = iniV*sin(angle);
-   
-   max = 0.0;
     
     counter =1;
     while (counter ==1){
@@ -65,16 +63,7 @@ void distHeight(double degree, double *ptrMax, double *ptrDistance){
         x = getX(x, vx, t);
         y = getY(y, vy, t);
         
-        if (max < y){
-            max = y;
-        }
-        
-        if (y<=0.0){
-            counter++;
-        }
     }
-    *ptrMax = max;
-    *ptrDistance = x;
     
 }
 

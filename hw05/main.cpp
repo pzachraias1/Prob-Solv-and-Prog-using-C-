@@ -1,31 +1,32 @@
 #include <cstdio>
 #include <cmath>
-//#include "formula.h"
-//#include "range.h"
+#include "formula.h"
+#include "range.h"
 
 
 int main(int argc, const char * argv[]) {
     
-    int max_y = 6;
-    int max_x = 6;
-    char c [max_y][max_x];
+    int max_y = 10;
+    int max_x = 20;
     
-    for (int y = max_y; y>0; y--){
-        
-        int x = 0;
-        while (x != (max_x)){
-            
-            if (x == (y-1)){
-                c[y][x] = '*';
-            }
-            else {
-                c[y][x] = '-';
-            }
-            printf("%c", c[y][x]);
-            x++;
-        }
-        printf("\n");
-     
+    double factor = 10;
+    
+    double angle = 45.0;
+    
+    char **c;
+    c = new char *[max_y];
+    for (int i = 0; i<max_y; i++){
+        c[i] = new char [max_x];
     }
+    
+    for (int i = 0; i<max_y; i++){
+        int j = 0;
+        while (j!= max_x){
+            c[i][j] = ' ';
+            j++;
+        }
+    }
+    
+    coordinate(angle, c, factor);
     
 }
