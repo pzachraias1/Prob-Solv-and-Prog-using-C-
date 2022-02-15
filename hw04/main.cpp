@@ -49,8 +49,13 @@ void wavReader (const char* filename){
         }
 
         if (!strncmp(fourcc, "data", 4)){
-            int contentData = *((int*)(content));
-            printf("%d\n", contentData);
+            short contentData = *((short*)(content));
+            printf("sub size: %d\n", contentData);
+            int i = 0;
+            while (i< (size/2)){
+                printf ("%d\n",content[i]);
+                i++;
+            }
         }
 
     }
@@ -61,7 +66,7 @@ void wavReader (const char* filename){
 
 int main(int argc, const char * argv[]) {
     
-    char filename[]="sample.wav";
+    char filename[]="taunt.wav";
     
     wavReader(filename);
     printf("\n");

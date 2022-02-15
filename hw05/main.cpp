@@ -6,24 +6,26 @@
 
 int main(int argc, const char * argv[]) {
     
-    int row = 6;
-    int cols = 6;
-    char c [row][cols];
+    int max_y = 6;
+    int max_x = 6;
+    char c [max_y][max_x];
     
-    for (int i = 0; i<6; i++){
-        c[i][6]='\0';
-        int j = 0;
-        while (j<6){
-            if (j%2 != 0){
-                c[i][j] = '0';
+    for (int y = max_y; y>0; y--){
+        
+        int x = 0;
+        while (x != (max_x)){
+            
+            if (x == (y-1)){
+                c[y][x] = '*';
             }
             else {
-                c[i][j] ='1';
+                c[y][x] = '-';
             }
-            printf("%c", c[i][j]);
-            j++;
+            printf("%c", c[y][x]);
+            x++;
         }
         printf("\n");
+     
     }
     
 }
