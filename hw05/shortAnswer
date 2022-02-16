@@ -1,0 +1,21 @@
+Pete Chee Zachraias
+Homework 5: Chapter 6
+
+Short Answer Question:
+1. What is the problem with two-dimensional arrays in C/C++?
+    It can be confusing. You are dealing with 2 arrays. One array point to another array. Also, C/C++ is bad at handling multi-dimensional array.
+
+The problem in using array in C/C++ is that, when you create a function that is set to handle or pass into as a 2-D array, it can only handle that and not any other sizes.
+
+2. Describe two ways to work around C/C++’s problems with two dimensional arrays.
+One way to get around the problem is to use flat array. The flat array is to turn the 2-D array into a 1-D array. To access the target data, you’ll have to use multiplication, which is the bad part of it.
+
+The other way to work around the problem is the numerical recipe trick. It require 2 arrays, one flat and the other is an array. The single array contain values that point to the first or start of the arrays in the flat array. It is hard to put it into words.
+
+3. Suppose you have a function that returns a two dimensional array of ints allocated using the
+“Numerical Recipes trick”. The caller should not be able to modify the values stored in this array or the pointers to rows. The function declaration looks like this:
+       ___________________________ getArray();
+Fill in the blank.
+
+In the blank: void
+
