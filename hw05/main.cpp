@@ -6,12 +6,12 @@
 
 int main(int argc, const char * argv[]) {
     
-    int max_y = 10;
-    int max_x = 20;
+    int max_y = 101;
+    int max_x = 201;
     
-    double factor = 10;
+    double factor = 20;
     
-    double angle = 45.0;
+    double angle = 40.0;
     
     char **c;
     c = new char *[max_y];
@@ -28,5 +28,14 @@ int main(int argc, const char * argv[]) {
     }
     
     coordinate(angle, c, factor);
+    
+    for (int i = max_y-1; i>0; i--){
+        int j = 0;
+        while(j!=max_x-1){
+            printf("%c",c[i][j]);
+            j++;
+        }
+        printf("\n");
+    }
     
 }
