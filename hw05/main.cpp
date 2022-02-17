@@ -38,4 +38,7 @@ int main(int argc, const char * argv[]) {
         printf("\n");
     }
     
+    delete [] *c;
+    delete [] c;
+    
 }
