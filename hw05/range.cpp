@@ -43,7 +43,7 @@ void coordinate(double degree, char** c, double factor){
     
     
      t = 0.0;// counter for the time
-    dt = 0.1;// the amount of sec that time change or increae
+    dt = 0.01;// the amount of sec that time change or increae
     
     m = 30.0; //mass of the object that is being thrown or fired
     dc = 0.45; //drag coefficient
