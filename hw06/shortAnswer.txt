@@ -1,0 +1,25 @@
+Pete Chee Zachraias
+Homework 6: chapter 7
+
+1. What are libraries good for?
+        It is convenient to use. There are times when it will take time to code something you need, and in the libraries, are there good chances that someone has already written down the codes you needed. That way, it is faster and more convenient to use library code rather than to code everything, which will take time.
+
+2. What are the two types of library and how are they different?
+    Static: the object files in the library will become part of the executable when it is compiled with your codes.
+    Dynamic or shared object: it is a type of library whose object files do not become part of the executable. It will remain apart from the executable. To link it, you’ll need to reference its address.
+
+3. Why is it better to get a library from a package manager, rather than compile it from source yourself. When might it be better to compile a library yourself?
+    There are 3 reasons why it is better to get the library from package manager rather than to compile it by self. First, there is a chance that the project that you want might depend on other projects. Second, it is hard to compile other people's codes. For example, getting a project from Github and trying to compile it. There are chances that it won't compile because there are codes in the files that need customization to fit into your system. Last, there are chances that the program in your system is using a different version of the library. Getting it from package manager will guarantee a compatible library. That is why it is better to get it from package manager.
+
+4. Suppose you are on MacOS and you want to use a library in the file /usr/local/lib/libpng.dylib that has the accompanying header file /usr/local/include/png.h. Suppose also that your program consists of one file called main.cc. Write the Makefile for this project.
+    All: main
+    
+    Main.o: main.cpp
+    g++ -c -Wall -Werror main.cpp
+    
+    Main: main.o
+    g++ -o main -L/usr/local/lib/ -lpng main.cpp
+
+5. What is a struct?
+    Struct is a header file without a method, and all of the data in it are public.
+
