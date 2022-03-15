@@ -23,15 +23,15 @@ Vector::~Vector(){
 }
 
 double Vector::getX() const{
-    return x;
+    return this->x;
 }
 
 double Vector::getY() const{
-    return y;
+    return this->y;
 }
 
 double Vector::getZ() const{
-    return z;
+    return this->z;
 }
 
 Vector Vector::add(Vector v1, Vector v2){
@@ -72,9 +72,12 @@ Vector Vector::multiplyDouble(Vector v, double num){
 }
 
 double Vector::vectorMultiply(Vector v1, Vector v2){
-    double num =0;
     
-    num = (v1.getX() * v2.getX()) + (v1.getY() * v2.getY()) + (v1.getZ() + v2.getZ());
+    x = v1.getX() * v2.getX();
+    y = v1.getY() * v2.getY();
+    z = v1.getZ() * v2.getZ();
     
-    return num;
+    m = x + y + z;
+    
+    return m;
 }

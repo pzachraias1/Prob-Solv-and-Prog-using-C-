@@ -7,6 +7,7 @@ private:
     double x;
     double y;
     double z;
+    double m;
     
 public:
     Vector(double x, double y, double z);

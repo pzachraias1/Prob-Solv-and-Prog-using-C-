@@ -5,27 +5,20 @@ using namespace std;
 
 int main(int argc, char** argv){
     
-    double x = 5.0;
+    double x = 12.0;
     double y = 3.0;
-    double z = 7.0;
+    double z = 6.7;
     
-    double xx = 2.5;
-    double yy = 3.0;
-    double zz = 12.3;
-    
-    /*cout<<"X = ";
-    cin>>x;
-    cout<< "Y = ";
-    cin>>y;
-    cout<<"Z = ";
-    cin>>z;*/
+    double xx = 12.5;
+    double yy = 2.0;
+    double zz = 10.3;
     
     Vector v1(x, y, z);
     Vector v2;
     v2.setVector (xx, yy, zz);
     
     Vector v3;
-    v3.subtract(v1, v2);
+    v3.add(v1, v2);
     
     cout<<"This is x: "<< v3.getX() <<endl;
     cout<<"This is y: "<< v3.getY() <<endl;
