@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include <iostream>
 
 //using namespace std;
 
@@ -34,50 +35,68 @@ double Vector::getZ() const{
     return this->z;
 }
 
-Vector Vector::add(Vector v1, Vector v2){
+Vector Vector::operator+(const Vector& v)const{
     
     Vector answer;
     
-    x = v1.getX() + v2.getX();
-    y = v1.getY() + v2.getY();
-    z = v1.getZ() + v2.getZ();
+    double xx = x + v.getX();
+    double yy = y + v.getY();
+    double zz = z + v.getZ();
     
-    answer.setVector(x, y, z);
+    answer.setVector(xx, yy, zz);
     
     return answer;
     
 }
 
-Vector Vector::subtract(Vector v1, Vector v2){
+Vector Vector::operator-(const Vector& v)const{
     Vector answer;
     
-    x = v1.getX() - v2.getX();
-    y = v1.getY() - v2.getY();
-    z = v1.getZ() - v2.getZ();
+    double xx = x - v.getX();
+    double yy = y - v.getY();
+    double zz = z - v.getZ();
     
-    answer.setVector(x, y, z);
+    answer.setVector(xx, yy, zz);
     
     return answer;
 }
 
-Vector Vector::multiplyDouble(Vector v, double num){
+Vector Vector::operator*(const double num)const{
     Vector answer;
     
-    x = v.getX() * num;
-    y = v.getY() * num;
-    z = v.getZ() * num;
+    double xx = x * num;
+    double yy = y * num;
+    double zz = z * num;
     
+    answer.setVector(xx, yy, zz);
     
     return answer;
 }
 
-double Vector::vectorMultiply(Vector v1, Vector v2){
+double Vector::operator*(const Vector& v)const{
     
-    x = v1.getX() * v2.getX();
-    y = v1.getY() * v2.getY();
-    z = v1.getZ() * v2.getZ();
+    double answer;
     
-    m = x + y + z;
+    double xx = x * v.getX();
+    double yy = y * v.getY();
+    double zz = z * v.getZ();
     
-    return m;
+    answer = xx + yy + zz;
+    
+    return answer;
+}
+
+const Vector& Vector::operator+=(const Vector& v){
+    
+    x += v.getX();
+    y += v.getY();
+    z += v.getZ();
+    
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& out, const Vector& v){
+    
+    out <<"Vector X: " <<v.getX()<< "\tVector Y: " << v.getY()<<"\tVector Z: " << v.getZ()<<std::endl;
+    return out;
 }

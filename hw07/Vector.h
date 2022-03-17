@@ -1,5 +1,6 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include <iostream>
 
 class Vector
 {
@@ -7,7 +8,6 @@ private:
     double x;
     double y;
     double z;
-    double m;
     
 public:
     Vector(double x, double y, double z);
@@ -20,10 +20,13 @@ public:
     double getY() const;
     double getZ() const;
     
-    Vector add(Vector v1, Vector v2);
-    Vector subtract(Vector v1, Vector v2);
-    Vector multiplyDouble(Vector v, double num);
-    double vectorMultiply(Vector v1, Vector v2);
+    Vector operator+(const Vector& v)const;
+    Vector operator-(const Vector& v)const;
+    const Vector& operator+=(const Vector& v);
+    Vector operator*(const double num)const ;
+    double operator*(const Vector& v)const;
+    
+    friend std::ostream& operator<<(std::ostream& out, const Vector& v);
 };
 
 #endif

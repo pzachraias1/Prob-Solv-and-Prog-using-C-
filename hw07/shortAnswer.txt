@@ -1,0 +1,63 @@
+
+Pete Chee Zachraias
+Homework 7
+
+1. What is wrong with the following code and how would you fix it?
+
+    #ifndef PROJECTILE_H
+    #define PROJECTILE_H
+    class Projectile {
+    private:
+        double position;
+        double velocity;
+    public:
+        Projectile(double position, double velocity);
+        virtual  ̃Projectile();
+        double getPosition() const;
+        double getVelocity() const;
+    } // end of Projecile class
+    #endif
+
+It is missing a semicolon at the end of the class. To fix it, I would just add the semicolon after the closing bracket or curly bracket.
+
+DO NOT FORGET SEMICOLON!!!
+
+2. The following is the definition of the constructor for the Projectile class above, but there are three things wrong with it. What are they and how would you fix them?
+  
+  Projectile(int position, int velocity) {
+        this.position = position;
+        this.velocity = velocity;
+    } // end of constructor
+
+First is that, there is no reference to the class from the header file. So, I would edit the “Projectile(int position, int velocity)” to “Projectile::Projectile(double position, double velocity)”
+
+Second is that, the argument inside the constructor, does not match the declaration from the header file. Assuming that header file is shown in question number 1. The int should be switch from int to double.
+
+Third, is that the “this.position” and “this.velocity” should be switch to “this->position” and “this->velocity” since they are pointing or reference the private variable from the header file.
+
+3. Describe each of the following methods
+(a) int* method(int* arg);
+The method is taking in an int, returning a pointer to a int, and it is able to modify the object.
+(b) const int* method(int* arg);
+The method is taking in a int, returning a pointer to a const int, and it is able to modify the object.
+(c) const int* const method(int* arg);
+The method is taking in a int, returning a constant pointer to a constant int, and it is able to modify the object.
+(d) const int* const method(const int* arg);
+The method is taking in a constant int, returning a constant pointer to a constant int, and it is able to modify the object.
+(e) const int* const method(const int* arg) const;
+The method is taking in a constant int, returning a constant pointer to a constant int, and it cannot modify the object.
+
+
+5. What is the difference between a pointer and a reference?
+One of the difference is that they are using a different operator to denote it. pointer is * while reference is &
+
+Another different is that pointer has to be deference while reference can automatically deference.
+
+Reference is storing a address to an object while pointer is holding a memory address for a variable.
+
+10. Why would you never declare a method like this?
+    void method(const int value);
+    
+I am going to say that it is not a sufficient way to do it. It is something that I would do and hoping that it works.
+
+I would say that void method have are used when trying to set values for an object. There is a possible way to use this and is to print out the argument and not modify it. Since the method is saying that it will not modify the variable or value that is being pass to it.
