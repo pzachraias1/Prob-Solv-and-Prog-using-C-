@@ -97,6 +97,6 @@ const Vector& Vector::operator+=(const Vector& v){
 
 std::ostream& operator<<(std::ostream& out, const Vector& v){
     
-    out <<"Vector X: " <<v.getX()<< "\tVector Y: " << v.getY()<<"\tVector Z: " << v.getZ()<<std::endl;
+    out <<"(" <<v.getX()<< ", " << v.getY()<<", " << v.getZ()<<")";
     return out;
 }

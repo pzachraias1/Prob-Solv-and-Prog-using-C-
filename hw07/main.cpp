@@ -41,37 +41,31 @@ int main(int argc, char** argv){
     Vector v3;
     v3 = v1+v2;
     
-    cout<<"\nAdding Vectors\nThis is x: "<< v3.getX() <<endl;
-    cout<<"This is y: "<< v3.getY() <<endl;
-    cout<<"This is z: "<< v3.getZ() <<endl;
+    cout<<"\nAdding Vector 1 and Vector 2, which creating Vector 3"<<endl;
+    cout<<"Vector 3 = "<<v3<<endl;
+    
     
     Vector v4 = v1-v2;
     
-    cout<<"\nSubtracting Vectors\nThis is x: "<< v4.getX() <<endl;
-    cout<<"This is y: "<< v4.getY() <<endl;
-    cout<<"This is z: "<< v4.getZ() <<endl;
+    cout<<"\nSubtracting Vectors 1 and Vector 2, which create Vector 4"<<endl;
+    cout<<"Vector 4 = "<< v4 <<endl;
     
     cout<<"\nEnter a number to multiple the Vector 1 with: ";
     cin>>mu;
     
     Vector v5 = v1 * mu;
     
-    cout<<"\nMultiplying A vector with a double\nThis is x: "<< v5.getX() <<endl;
-    cout<<"This is y: "<< v5.getY() <<endl;
-    cout<<"This is z: "<< v5.getZ() <<endl;
+    cout<<"\nMultiplying A vector 1 with "<< mu <<", which create Vector 5"<<endl;
+    cout<<"Vector 5 = "<< v5 << endl;
     
     double mm;
     mm = v1 * v2;
     
-    cout<<"\nMultiplication of the 2 vector: "<< mm<<endl;
-    cout<<endl;
+    cout<<"\nMultiplication of Vector 1 and Vector 2 = "<< mm <<endl;
     
     v1+=v2;
-    cout<<"\nOverloading operator:\nX = "<<v1.getX()<<endl;
-    cout<<"Y = " <<v1.getY()<<endl;
-    cout<<"Z = " <<v1.getZ()<<endl;
-    
-    cout << v1 << endl;
+    cout<<"\nOverloading Operator of Vector 1 with the Vector 2"<<endl;
+    cout<<"New Vector 1 = " <<v1<<endl;
     
     /*delete v1;
     delete v2;
