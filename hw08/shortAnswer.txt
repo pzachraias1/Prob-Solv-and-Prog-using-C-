@@ -1,0 +1,29 @@
+Pete Chee Zachraias
+Homework 8
+
+2. Describe “ownership” as it pertains to C++ memory management.
+
+Ownership is a way to keep track and manage a heap memory. The object takes in a data and it is the object’s responsibility to delete or manage that data. So basically, the object own the data that is being passed to.
+
+6. What is the “rule of five”?
+
+The rule of five is consist of constructor, destructor, and method. All in which made up of things that has to be implemented in the code. It is a rule that the component of the block of code has to follow in order to properly own a data and manage it.
+
+So basically, the rule of five is a benefit to the code as it manage heap data. Although it consist of 5 methods.
+
+7. What is copy elision?
+
+When there is an unnecessary copy, the compiler is able to not copy the object or the thing that is unnecessary to copy. This is a technique for the compiler to be able to skip copying data due to the data being not necessary or consider to be an extra.
+
+8. What is the difference between “copying” and “moving” an object?
+
+Copying: is the copy of the data of an object to another object. It won’t copy unless we were to use “std::move”, which is forcing the move by converting the lvalue to rvalue.
+
+Moving: used a rvalue that reference the original object or the temporary value. The move construct is first going to point to the object where the original pointer is pointing to, and set the original pointer to null. That way, when the original pointer are delete, it wont delete the value twice, since 2 pointer are pointing to the same value or object.
+
+So basically, the move constructor is like owning the heap data or the object. Copy constructor is just copying the value of one object to another object.
+
+12. When would you need to use a forward declaration?
+
+Forward declaration is called or use when you are trying to refer to another class.
+
