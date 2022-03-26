@@ -34,13 +34,9 @@ void Satellite:: update(double t, const Vector& a){
     Vector v2;
     Vector r2;
     
-    double index = 0.0;
-    while (index != t){
-        v2 = (this->v) + (a*index);
-        r2 = (this->d) + (v2*index);
-        //std::cout<<"\nVelocity: "<< v2<<"\nPosition: "<< r2 <<std::endl;
-        index ++;
-    }
+    v2 = (this->v) + (a*t);
+    r2 = (this->d) + (v2*t);
+    
     this->v = v2;
     this->d= r2;
 }

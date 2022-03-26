@@ -22,7 +22,7 @@ bool Planet:: crash (const Vector& r, Vector& g){
     
     double r2 = r * r;
     
-    if (r2<pow(rp,2)){
+    if (r2<pow(rp,1)){
         return true;
     }
     else {
