@@ -27,7 +27,6 @@ bool Planet:: crash (const Vector& r, Vector& g){
     }
     else {
         g = r*((this->G)*(this->M)/(pow(r2, 1.5)));
-        std::cout << r2 << std::endl;
         return false;
     }
 }

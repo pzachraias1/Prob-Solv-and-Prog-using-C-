@@ -22,7 +22,7 @@ int main(int argc, char** argv){
     Planet p (M, rp);
     
     if (!p.crash (r, g)){
-        cout<< g <<endl;
+        cout<< "Gravity acceleration: "<<g <<endl;
         
     }
     else{
@@ -32,5 +32,5 @@ int main(int argc, char** argv){
     double t = 20;
     Satellite s(p, r, v);
     s.update(t, g);
-    cout << "Position: " << s.getPosition() << "\tVelocity: " << s.getVelocity()<< endl;
+    cout << "\nSatellite:\nPosition: " << s.getPosition() << "\nVelocity: " << s.getVelocity()<< endl;
 }

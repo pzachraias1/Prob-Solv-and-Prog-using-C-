@@ -18,8 +18,8 @@ public:
     Vector getPosition();
     Vector getVelocity();
     
-    void setValue (Vector d, Vector v);
-    Satellite update(double t, const Vector& a);
+    void setValue (Vector& d, Vector& v);
+    void update(double t, const Vector& a);
 };
 
 #endif
