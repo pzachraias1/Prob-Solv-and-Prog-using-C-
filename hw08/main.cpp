@@ -2,6 +2,7 @@
 #include "Planet.h"
 #include "Vector.h"
 #include "Satellite.h"
+#include "Fragment.h"
 #include <cmath>
 
 using namespace std;
@@ -31,31 +32,13 @@ int main(int argc, char** argv){
     
     double t = 1.0;
     Satellite s(p, r, v);
-    for (int i = 0; i<20; i++){
+    for (int i = 0; i<10; i++){
         s.update(t, g);
         cout << "\nSatellite:\nPosition: " << s.getPosition() << "\nVelocity: " << s.getVelocity()<< endl;
     }
+    v = s.getVelocity();
+    r = s.getPosition();
     
-    
-    /**
-    cout<< "\nInternational Space Station (ISS):"<< endl;
-    Vector rISS (400000.0, 0.0, 0.0);
-    Vector vISS (0.0, 7660.0, 0.0);
-    Vector aISS (0.0, 0.0, 0.0);
-    
-    
-    if (!p.crash (rISS, aISS)){
-        cout<< "Gravity acceleration:"<<aISS <<endl;
-        double tISS = 20.0;
-        Satellite sISS(p, rISS, vISS);
-        for (int i = 0; i<10; i++){
-            s.update(tISS, aISS);
-        }
-        cout << "\nISS:\nPosition: " << sISS.getPosition() << "\nVelocity: " << sISS.getVelocity()<< endl;
-    }
-    else {
-        cout << "It is crashing"<<endl;
-    }
-     */
-    
+    Fragment f(p, r, v, 2.0, 5);
+    f.update(1, g);
 }
