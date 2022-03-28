@@ -30,13 +30,18 @@ Vector Satellite:: getVelocity(){
     return this->v;
 }
 
-void Satellite:: update(double t, const Vector& a){
-    Vector v2;
-    Vector r2;
-    
-    v2 = (this->v) + (a*t);
-    r2 = (this->d) + (v2*t);
+void Satellite:: update(double t){
+    Vector v2 (0.0, 0.0, 0.0);
+    Vector r2 (0.0, 0.0, 0.0);
+    Vector a (0.0, 0.0, 0.0);
+    if (!p.crash(this->d, a)){
+        v2 = (this->v) + (a*t);
+        r2 = (this->d) + (v2*t);
+    }
+    else{
+        
+    }
     
     this->v = v2;
-    this->d= r2;
+    this->d = r2;
 }

@@ -15,7 +15,7 @@ public:
     Fragment (const Planet& p, Vector& d, Vector& v, double ve, int num);
     virtual ~Fragment();
     
-    void update(double t, Vector& a);
+    void update(double t);
 };
 
 #endif

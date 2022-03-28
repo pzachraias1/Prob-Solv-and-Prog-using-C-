@@ -19,7 +19,7 @@ public:
     Vector getVelocity();
     
     void setValue (Vector& d, Vector& v);
-    void update(double t, const Vector& a);
+    void update(double t);
 };
 
 #endif

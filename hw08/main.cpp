@@ -33,12 +33,14 @@ int main(int argc, char** argv){
     double t = 1.0;
     Satellite s(p, r, v);
     for (int i = 0; i<10; i++){
-        s.update(t, g);
+        s.update(t);
         cout << "\nSatellite:\nPosition: " << s.getPosition() << "\nVelocity: " << s.getVelocity()<< endl;
     }
     v = s.getVelocity();
     r = s.getPosition();
     
+    //cout << "\nSatellite:\nPosition: " << r << "\nVelocity: " << v << endl;
+    
     Fragment f(p, r, v, 2.0, 5);
-    f.update(1, g);
+    f.update(1.0);
 }

@@ -33,13 +33,22 @@ Fragment::~Fragment(){
     
 }
 
-void Fragment:: update(double t, Vector& a){
+void Fragment:: update(double t){
 
+    //Vector r = sArray[0]->getPosition();
+    //Vector v = sArray[0]->getVelocity();
+    //v = sArray[1]->getVelocity();
     for (int i = 0; i<this->num; i++){
-        Vector r = this->sArray[i]->getPosition();
+        Vector r = sArray[i]->getPosition();
+        Vector v = sArray[i]->getVelocity();
+        //r = sArray[i]->getPosition();
+        //v = sArray[i]->getVelocity();
+        Vector a (0.0, 0.0, 0.0);
+        //std::cout << r << std::endl;
+        //std::cout << "Position: " << r << "\tVelocity: " << v << std::endl;
         if (!p.crash(r, a)){
-            sArray[i]->update(t, a);
-            std::cout << "Position: " << sArray[i]->getPosition()<< "\tVelocity: " << sArray[i]->getVelocity() << std::endl;
+            sArray[i]->update(t);
+            std::cout << "Position: " << r << "\tVelocity: " << v << std::endl;
         }
         else {
             std::cout << "Nothing is happening here" << std::endl;
