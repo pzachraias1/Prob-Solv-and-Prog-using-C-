@@ -22,7 +22,7 @@ Fragment::Fragment (const Planet& p, Vector& d, Vector& v, double ve, int num){
         
         
         
-        this->sArray[i] = new Satellite s(p, d, v);
+        this->sArray[i] = new Satellite(p, d, v);
         //std::cout << "Position: " << sArray[i]->getPosition()<< "\tVelocity: " << sArray[i]->getVelocity() << std::endl;
     }
     this->p = p;
@@ -43,11 +43,26 @@ void Fragment:: update(double t){
         Vector a (0.0, 0.0, 0.0);
         if (!p.crash(r, a)){
             sArray[i]->update(t);
-            std::cout << "Position: " << r << "\tVelocity: " << v << std::endl;
+            //std::cout<<i+1 << ". Position: " << r << "\tVelocity: " << v << std::endl;
         }
         else{
-            std::cout << "Something is wrong" << std::endl;
+            //delete sArray[i];
+            //sArray[i] = nullptr;
+            //std::cout<<i+1 << ". Position: " << r << "\tVelocity: " << v << std::endl;
         }
     }
      
+}
+
+void Fragment:: distance(Satellite s){
+    double distance;
+    //double min;
+    Vector r1 = s.getPosition();
+    Vector r2 (0.0, 0.0, 0.0);
+    
+    for (int i = 0; i< this->num; i++){
+        r2 = this->sArray[i]->getPosition();
+        distance = sqrt((r1-r2)*(r1-r2));
+        std::cout << i+1<<". Distance: "<<distance << std::endl;
+    }
 }
