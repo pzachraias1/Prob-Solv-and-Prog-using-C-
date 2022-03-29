@@ -20,10 +20,10 @@ Fragment::Fragment (const Planet& p, Vector& d, Vector& v, double ve, int num){
         
         v = v + (vhat*ve);
         
-        Satellite s (p, d, v);
         
-        this->sArray[i] = &s;
-        std::cout << "Position: " << sArray[i]->getPosition()<< "\tVelocity: " << sArray[i]->getVelocity() << std::endl;
+        
+        this->sArray[i] = new Satellite s(p, d, v);
+        //std::cout << "Position: " << sArray[i]->getPosition()<< "\tVelocity: " << sArray[i]->getVelocity() << std::endl;
     }
     this->p = p;
     this->num = num;
@@ -35,23 +35,18 @@ Fragment::~Fragment(){
 
 void Fragment:: update(double t){
 
-    //Vector r = sArray[0]->getPosition();
-    //Vector v = sArray[0]->getVelocity();
-    //v = sArray[1]->getVelocity();
+    Vector r;
+    Vector v;
     for (int i = 0; i<this->num; i++){
-        Vector r = sArray[i]->getPosition();
-        Vector v = sArray[i]->getVelocity();
-        //r = sArray[i]->getPosition();
-        //v = sArray[i]->getVelocity();
+        r = sArray[i]->getPosition();
+        v = sArray[i]->getVelocity();
         Vector a (0.0, 0.0, 0.0);
-        //std::cout << r << std::endl;
-        //std::cout << "Position: " << r << "\tVelocity: " << v << std::endl;
         if (!p.crash(r, a)){
             sArray[i]->update(t);
             std::cout << "Position: " << r << "\tVelocity: " << v << std::endl;
         }
-        else {
-            std::cout << "Nothing is happening here" << std::endl;
+        else{
+            std::cout << "Something is wrong" << std::endl;
         }
     }
      

@@ -21,12 +21,11 @@ Planet::~Planet(){
 bool Planet:: crash (const Vector& r, Vector& g){
     
     double r2 = r * r;
-    
-    if (r2<pow(rp,1)){
+    if (r2<(rp*rp)){
         return true;
     }
     else {
-        g = r*((this->G)*(this->M)/(pow(r2, 1.5)));
+        g = r*(-(this->G)*(this->M)/(pow(r2, 1.5)));
         return false;
     }
 }

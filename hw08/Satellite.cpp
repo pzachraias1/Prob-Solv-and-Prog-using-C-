@@ -34,12 +34,13 @@ void Satellite:: update(double t){
     Vector v2 (0.0, 0.0, 0.0);
     Vector r2 (0.0, 0.0, 0.0);
     Vector a (0.0, 0.0, 0.0);
+    
     if (!p.crash(this->d, a)){
         v2 = (this->v) + (a*t);
-        r2 = (this->d) + (v2*t);
+        r2 = (this->d) + (this->v*t);
     }
     else{
-        
+        std::cout << "it is not working" << std::endl;
     }
     
     this->v = v2;

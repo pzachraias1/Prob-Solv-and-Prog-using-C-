@@ -10,9 +10,9 @@ using namespace std;
 int main(int argc, char** argv){
     
     float M = 5.9736e24;// 00000000000000000000; //mass of earth
-    double rp = 6371000; //radius of earth
+    double rp = 6.378e6; //radius of earth
     
-    double x = 400000.0;
+    double x = 400000.0 + rp;
     double y = 0.0;
     double z = 0.0;
     
@@ -22,6 +22,7 @@ int main(int argc, char** argv){
     
     Planet p (M, rp);
     
+    //A and a little B----------------------------------------
     if (!p.crash (r, g)){
         cout<< "\nGravity acceleration:"<<g <<endl;
         
@@ -30,6 +31,7 @@ int main(int argc, char** argv){
         cout << "It is crashing"<<endl;
     }
     
+    //B-------------------------------------------
     double t = 1.0;
     Satellite s(p, r, v);
     for (int i = 0; i<10; i++){
@@ -39,8 +41,9 @@ int main(int argc, char** argv){
     v = s.getVelocity();
     r = s.getPosition();
     
-    //cout << "\nSatellite:\nPosition: " << r << "\nVelocity: " << v << endl;
+    cout << "\nSatellite:\nPosition: " << r << "\nVelocity: " << v << endl;
     
     Fragment f(p, r, v, 2.0, 5);
     f.update(1.0);
+     
 }
