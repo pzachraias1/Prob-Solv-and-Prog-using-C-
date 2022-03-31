@@ -16,7 +16,7 @@ public:
     virtual ~Fragment();
     
     void update(double t);
-    void distance(Satellite s);
+    double distance(Satellite s);
 };
 
 #endif

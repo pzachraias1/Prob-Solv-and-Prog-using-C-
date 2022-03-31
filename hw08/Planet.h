@@ -6,7 +6,7 @@
 class Planet {
 
 private:
-    double G = 0.000000000066742; //Gravitational constant
+    double G = 6.67408e-11; //Gravitational constant
     float M; //mass of the planet
     double rp; //radius of the planet
 

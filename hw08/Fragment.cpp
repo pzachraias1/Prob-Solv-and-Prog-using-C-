@@ -35,34 +35,39 @@ Fragment::~Fragment(){
 
 void Fragment:: update(double t){
 
-    Vector r;
-    Vector v;
     for (int i = 0; i<this->num; i++){
-        r = sArray[i]->getPosition();
-        v = sArray[i]->getVelocity();
-        Vector a (0.0, 0.0, 0.0);
-        if (!p.crash(r, a)){
-            sArray[i]->update(t);
-            //std::cout<<i+1 << ". Position: " << r << "\tVelocity: " << v << std::endl;
-        }
-        else{
-            //delete sArray[i];
-            //sArray[i] = nullptr;
-            //std::cout<<i+1 << ". Position: " << r << "\tVelocity: " << v << std::endl;
-        }
+        sArray[i]->update(t);
+        //std::cout << std::endl;
+        //std::cout<<i+1 << ". Position: " << sArray[i]->getPosition() << "\tVelocity: " << sArray[i]->getVelocity() << std::endl;
     }
      
 }
 
-void Fragment:: distance(Satellite s){
+double Fragment:: distance(Satellite s){
     double distance;
-    //double min;
+    double min;
+    double curr;
     Vector r1 = s.getPosition();
     Vector r2 (0.0, 0.0, 0.0);
     
+    min = (r1)*(r1);
+    
     for (int i = 0; i< this->num; i++){
         r2 = this->sArray[i]->getPosition();
-        distance = sqrt((r1-r2)*(r1-r2));
-        std::cout << i+1<<". Distance: "<<distance << std::endl;
+        curr = (r1-r2)*(r1-r2);
+        
+        //std::cout << "r1: " << r1 << "\tr2: " << r2 << std::endl;
+        
+        if (min > curr){
+            min = curr;
+            //std::cout << "New Minimum: " << min << std::endl;
+        }
+        
+        //std::cout << i+1<<". Test: "<<curr << std::endl;
     }
+    
+    distance = pow(min, 0.5);
+    return distance;
+    //std::cout << "" << std::endl;
+    //std::cout <<"Distance: "<<distance << std::endl;
 }
