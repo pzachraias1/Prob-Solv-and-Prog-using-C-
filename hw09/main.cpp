@@ -4,8 +4,8 @@
 int main(int argc, const char * argv[]) {
     //char filename [] = "test.txt";
     FILE* file = fopen("test.txt", "wb");
-    FileStreamBuf buff(file, 1);
+    FileStreamBuf buff(file, 8);
     std::ostream os (&buff);
-    os.write("Hello bye", 9);
+    os.write("Hello bye and hello", 19);
     
 }

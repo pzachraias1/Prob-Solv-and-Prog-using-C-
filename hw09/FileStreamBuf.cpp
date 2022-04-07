@@ -21,9 +21,9 @@ FileStreamBuf:: ~FileStreamBuf(){
 int FileStreamBuf::overflow(int c){
     std::streambuf::overflow(c);
     this->cArray[start] = c;
-    cArray [next] = start+1;
-    cArray [end] = size;
-    fwrite(cArray, sizeof(char), size, file);
+    cArray [next] = start;
+    //cArray [end] = size;
+    fwrite(cArray, sizeof(char), 1, file);
     setp(&cArray[next], &cArray[end]);
     
     return c;
@@ -32,7 +32,7 @@ int FileStreamBuf::overflow(int c){
 int FileStreamBuf::sync(){
     std::streambuf::sync();
     std::streambuf::pptr();
-    fwrite(cArray, sizeof(char), size, this->file);
+    fwrite(cArray, sizeof(char), 1, this->file);
     setp(&cArray[start], &cArray[end]);
     return 0;
 }
