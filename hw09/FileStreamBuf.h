@@ -7,6 +7,7 @@ private:
     FILE* file;
     int size;
     int start, next, end;
+    int startRead, nextRead, endRead;
     char cArray [];
     
 public:
@@ -14,7 +15,8 @@ public:
     virtual ~FileStreamBuf();
     int overflow(int c);
     int sync();
-    //int underflow();
+    int underflow();
+    int uflow();
 };
 
 #endif

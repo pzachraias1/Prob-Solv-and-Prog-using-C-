@@ -1,0 +1,38 @@
+Pete Chee Zachraias
+Homework 9: Inheritance
+
+2. Why would you mark a method as virtual? Why wouldn’t you?
+Marking Virtual is like marking the method that is it is okay for it to be override. It is not okay to use it because it is slow. It will slow down the program
+
+4. What is the difference between a dynamic cast and a static cast? Why would you use one
+over the other?
+Dynamic cast check at runtime but the static cast does not. Dynamic cast is use when you want to have a safe down cast. You would use static cast you want fast and you know for sure that the casting is valid.
+
+6. Suppose you have a Fruit base class and a Banana subclass. Suppose you have a banana declared like this:
+Banana b;
+What is the difference between what happens when you pass your banana to a method declared like this:
+    void eat(Fruit f);
+vs. one declared like this:
+void eat(const Fruit& f);.
+
+the first declaration is passing in a Fruit object. Meaning that the value that are inside the object are also pass in. And the Fruit object is susceptible to be change or modify, in term of values
+
+the second declaration, is pointing to or reference a memory address of the Object Fruit and it is not going to be change or modify.
+
+9. Suppose you have an Exception class. What is wrong with the following code and how would you fix it?
+    throw new Exception("Help me, Spock");
+
+remove the new. It should be throw Exception("Help me, Spock");
+
+
+10. What is wrong with the following code and how would you fix it?
+    try {
+        // some code here that might throw an exception
+    } catch(Exception e) {
+        std::cerr << "Error occurred: "<<e.what()<<std::endl;
+}
+
+
+In the catch argument, it should reference a Exception.
+Fix: catch (Exception& e){\\some code here}
+

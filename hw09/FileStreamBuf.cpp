@@ -10,8 +10,12 @@ FileStreamBuf::FileStreamBuf(FILE* f, int size){
     this->end = size;
     this->next = end;
     
+    this->startRead = 0;
+    this->endRead = size;
+    this->nextRead = end;
+    
     setp(&this->cArray[next], &this->cArray[end]);
-    //setg(&this->cArray[start], &this->cArray[next], &this->cArray[end]);
+    setg(&this->cArray[startRead], &this->cArray[nextRead], &this->cArray[endRead]);
 }
 
 FileStreamBuf:: ~FileStreamBuf(){
@@ -22,7 +26,6 @@ int FileStreamBuf::overflow(int c){
     std::streambuf::overflow(c);
     this->cArray[start] = c;
     cArray [next] = start;
-    //cArray [end] = size;
     fwrite(cArray, sizeof(char), 1, file);
     setp(&cArray[next], &cArray[end]);
     
@@ -37,10 +40,21 @@ int FileStreamBuf::sync(){
     return 0;
 }
 
-/**
+
 int FileStreamBuf::underflow(){
+    std::streambuf::underflow();
     fread(this->cArray, sizeof(char), size, this->file);
+    setg(&this->cArray[startRead], &this->cArray[nextRead], &this->cArray[endRead]);
     
-    return 0;
+    return nextRead;
 }
- */
+
+int FileStreamBuf::uflow(){
+    std::streambuf::underflow();
+    
+    fputs(cArray, file);
+    //fread(this->cArray, sizeof(char), 1, this->file);
+    setg(&this->cArray[start], &this->cArray[next], &this->cArray[end]);
+    
+    return cArray[next];
+}
