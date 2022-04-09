@@ -3,11 +3,11 @@
 
 int main(int argc, const char * argv[]) {
     //= *new char [size];
-    FILE* file = fopen("test.txt", "rb");
+    FILE* file = fopen("test.txt", "wb");
     //FILE* file = fopen("test.txt", "rb");
     FileStreamBuf buff(file, 2);
     std::ostream os (&buff);
-    os.write("Hello and bee", 13);
+    os.write("Bird and the Bee story", 30);
     
     
     int size = 6;

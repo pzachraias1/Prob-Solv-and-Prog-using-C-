@@ -51,8 +51,7 @@ int FileStreamBuf::underflow(){
 
 int FileStreamBuf::uflow(){
     std::streambuf::underflow();
-    
-    fputs(cArray, file);
+
     //fread(this->cArray, sizeof(char), 1, this->file);
     setg(&this->cArray[start], &this->cArray[next], &this->cArray[end]);
     
