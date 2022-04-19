@@ -1,7 +1,10 @@
 all: main
 
-main.o: main.cpp
-	g++ -c -Wall -Werror main.cpp
+main.o: main.cpp Pattern.h
+	g++ -c -Wall -Werror -std=c++11 main.cpp
 
-main: main.o
-	g++ -o main main.o
+Pattern.o: Pattern.cpp Pattern.h
+	g++ -c -Wall -Werror -std=c++11 Pattern.cpp
+	
+main: main.o Pattern.o
+	g++ -o main main.o Pattern.o

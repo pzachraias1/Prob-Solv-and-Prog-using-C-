@@ -10,10 +10,11 @@ private:
     int count;
     
 public:
-    Pattern(const std::string word, const int count);
+    Pattern(std::string word, int count);
     virtual ~Pattern();
     
-    std::unordered_map<std::string, std::vector<Pattern*>> lookupTable();
+    std::string getString();
+    int getNum();
 };
 
 #endif
