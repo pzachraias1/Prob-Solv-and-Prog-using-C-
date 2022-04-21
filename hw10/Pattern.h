@@ -8,6 +8,7 @@ class Pattern{
 private:
     std::string word;
     int count;
+    double cumProb;
     
 public:
     Pattern(std::string word, int count);
@@ -15,6 +16,8 @@ public:
     
     std::string getString();
     int getNum();
+    double setCum(double total);
+    double getCum();
 };
 
 #endif

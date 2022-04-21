@@ -19,3 +19,11 @@ std::string Pattern:: getString(){
 int Pattern::getNum(){
     return this->count;
 }
+
+double Pattern:: setCum(double total){
+    return this->cumProb = total;
+}
+
+double Pattern:: getCum(){
+    return this->cumProb;
+}

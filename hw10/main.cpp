@@ -2,6 +2,7 @@
 #include <fstream>
 #include <unordered_map>
 #include <vector>
+#include <cstdlib>
 #include "Pattern.h"
 
 int main(int argc, const char * argv[]) {
@@ -16,7 +17,6 @@ int main(int argc, const char * argv[]) {
         std::string word;
         in >> word;
         s += word + " ";
-        //std::cout << word << std::endl;
     }
     for (int i = 0; i< s.length() -(sizeOfPattern+1); i++){
         std::string buff = s.substr(i, sizeOfPattern);
@@ -31,69 +31,69 @@ int main(int argc, const char * argv[]) {
     std::unordered_map<std::string, std::vector<Pattern*>> lookup;
     
     int i = 0;
+    
     for (auto const &pair: map) {
         std::string w = pair.first;
         int num = pair.second;
         std::string prefix = w.substr(0, w.length()-1);
         
-        /*for (int j = 0; j<=num; j++){
-            if (w.substr(j, prefix.size()) == prefix){
-                lookup [prefix] = std::vector<Pattern*>();
-                //std::cout << "blank" << std::endl;
-            }
-            else{
-                lookup[prefix].push_back(new Pattern(w, num));
-                //std::cout << "working"<< std::endl;
-            }
-        }
-        
-        
-        //int j = 0;
-        */
-        i++;
-        std::cout << std::endl;
-        std::cout << "\n" << i<< ". Word: " << w<< std::endl;
-        std::cout << "Prefix: " << prefix<< std::endl;
-        
-        for (auto const &pair2: map){
-            std::string w2 = pair2.first;
-            for (int j = 0; j< (w2.size() - prefix.size() +1 ); j++){
-                if (w2.substr(j, prefix.size()) != prefix){
-                    lookup [prefix] = std::vector<Pattern*>();
-                    std::cout << w2.substr(j, prefix.size()) << " ][ ";
-                }
-                else{
-                    lookup[prefix].push_back(new Pattern(w, num));
-                    std::cout << w2.substr(j, prefix.size()) << " ][ ";
-                    std::cout << " WORKING ";
-                }
-            }
-        }
-        
-        /*if (map.find(prefix) == map.end()){
+        if (lookup.find(prefix) == lookup.end()){
             lookup [prefix] = std::vector<Pattern*>();
-            std::cout << "blank" << std::endl;
         }
-        else {
-            lookup[prefix].push_back(new Pattern(w, num));
-            std::cout << "working"<< std::endl;
-        }
-         */
-        //std::cout<< i<<". " << .first << ": " << pair.second << "\n";
-    }
-    i = 0;
-    for (auto const &pair: lookup){
-        i++;
-        std::cout<< i<<". " << pair.first << ": [ ";
-        std::vector<Pattern*> v = pair.second;
-
-        for (auto const ii : v){
-            std::string vString = ii->getString();
-            int num = ii->getNum();
-            std::cout << vString << ", " << num;
-        }
-        std::cout << " ]\n"<< std::endl;
+        lookup[prefix].push_back(new Pattern(w, num));
     }
     
+    
+    i = 0;
+    double total = 0.0;
+    
+    for (auto const &pair: lookup){
+        i++;
+        //std::cout<< i<<". " << pair.first << ": [ ";
+
+        std::vector<Pattern*> v = pair.second;
+
+        double prob = 0.0;
+        //double total = 0.0;
+        
+        
+        for (int ii = 0; ii < v.size(); ii++){
+            std::string vString = v[ii] ->getString();
+            int num = v[ii]->getNum();
+            
+            int j = 0;
+            total = 0;
+            while (j< v.size()){
+                total += num;
+                j++;
+            }
+            
+            prob += (double) (num/total);
+            v[ii]->setCum(prob);
+            
+            //std::cout << "(Pattern String: \"" << vString << "\" Pattern Count: " << num << ") ";
+            //std::cout << " Probability: " << v[ii]->getCum() << std::endl;
+            
+        }
+        //std::cout << "]\n"<< std::endl;
+    }
+    
+    std::string ranName = "Regret ";
+    double ranNum = (double) rand()/(double) RAND_MAX;
+    std::cout << "Number is : " << ranNum << std::endl;
+    for (auto const &loop: lookup){
+        if (loop.first == ranName){
+            std::vector<Pattern*> v = loop.second;
+            for (auto const &pool: v){
+                if (ranNum< pool->getCum()){
+                    ranName = pool->getString();
+                }
+            }
+        }
+    }
+    
+    std::cout << "The word is: " << ranName << std::endl;
+     
+     
     in.close();
 }
