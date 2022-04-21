@@ -10,7 +10,7 @@ int main(int argc, const char * argv[]) {
     
     std::ifstream in("test.txt");
     std::string s = "";
-    int sizeOfPattern = 4;
+    int sizeOfPattern = 8;
     std::unordered_map<std::string, int> map;
     
     while (in.good()){
@@ -78,18 +78,44 @@ int main(int argc, const char * argv[]) {
         //std::cout << "]\n"<< std::endl;
     }
     
-    std::string ranName = "Regret ";
+    std::string ranName = "Hel";
+    int ranSize = ranName.length();
+    int position =ranName.length()-1;
     double ranNum = (double) rand()/(double) RAND_MAX;
-    std::cout << "Number is : " << ranNum << std::endl;
-    for (auto const &loop: lookup){
-        if (loop.first == ranName){
+    //std::cout << "Number is : " << ranNum << std::endl;
+    
+    int jj = 0;
+    
+    while (jj!= 7){
+        ranNum = (double) rand()/(double) RAND_MAX;
+        std::cout << "Number is : " << jj << std::endl;
+        for (auto const &loop: lookup){
+            
+            std::string word = loop.first.substr(0, ranSize);
+            std::string ranHolder = ranName.substr(jj, ranSize);
             std::vector<Pattern*> v = loop.second;
-            for (auto const &pool: v){
-                if (ranNum< pool->getCum()){
-                    ranName = pool->getString();
+            std::cout << "(" << ranName<<")" << std::endl;
+            
+            //jj++;
+            if (word == ranHolder){
+                
+                for (auto const &pool: v){
+                    std::string placeHolder = pool->getString().substr(position, 1);
+                    position ++;
+                    std::cout << "(" << pool->getString()<<")" << std::endl;
+                    std::cout << "Cum: " << position << std::endl;
+                    if (ranNum< pool->getCum()){
+                        if (placeHolder == " ")
+                            ranName += " ";
+                        else
+                            ranName += placeHolder;
+                        //break;
+                    }
                 }
+                break;
             }
         }
+        jj++;
     }
     
     std::cout << "The word is: " << ranName << std::endl;
