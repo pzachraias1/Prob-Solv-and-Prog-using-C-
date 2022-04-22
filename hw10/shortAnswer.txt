@@ -5,19 +5,7 @@ Homework 10: Template
 It is a generic class. It is a type of class or function that it is not specific on the data type that either takes in as argument or return a non specific data type value.
 
 2. What is the fundamental difference between how Java and C++ implement collections?
-It is easier and simpler to implement a collection in Java. Whereas C++ implement in a way that is awkward and long. A quote from Professor Ed Pier, “Welcome to C++”.
-
-An example is:
-    Java: ArrayList <T t> example = new ArrayList<>();
-    C++: std::vector <T t> example ();
-
-It may look simpler for the C++ for now, but just implementing it is super tedious on some case.
-
-The reason why implement collection is java is simpler is because you are just typing the Java collection call whereas C++ has to put the name of the class first, two colon, and then the name of the function or method.
-
-Also, the <> are optional in Java whereas C++ should be included.
-
-So basically, collection class in C++ has to be implement as a template, whereas Java is not
+C++ uses Template but Java uses a universal base class
 
 3. What is the difference between a template and a class?
 Class is a type of class that the data types are specific. Whereas Template, the datatype can be specific at a later time. Template class data type does not need to be specific at start.
@@ -29,5 +17,5 @@ instantiation?
 The <> in Java does not mean a lot. Like the data type that is being put in the <> is always going to come out as String Object. In C++, it mean that you are creating a class with custom-written code to it.
 
 8. Why can’t you store references in a container?
-    Because the container does not own the object that is being references
+    There is no way to initialize the reference in a collection
 

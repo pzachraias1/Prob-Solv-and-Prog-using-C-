@@ -8,8 +8,9 @@
 int main(int argc, const char * argv[]) {
     
     
-    std::ifstream in("test.txt");
+    std::ifstream in("training.txt");
     std::string s = "";
+    
     int sizeOfPattern = 8;
     std::unordered_map<std::string, int> map;
     
@@ -78,47 +79,62 @@ int main(int argc, const char * argv[]) {
         //std::cout << "]\n"<< std::endl;
     }
     
-    std::string ranName = "Hel";
+    std::string input = "";
+    std::cout << "Enter a word or letter: ";
+    std::cin >> input;
+    std::string ranName = input;
     int ranSize = ranName.length();
-    int position =ranName.length()-1;
     double ranNum = (double) rand()/(double) RAND_MAX;
     //std::cout << "Number is : " << ranNum << std::endl;
     
-    int jj = 0;
+    int countingSize = 0;
     
-    while (jj!= 7){
+    int jj = 0;
+    int position =ranName.length()-ranSize;
+    
+    while (countingSize != lookup.size()){
         ranNum = (double) rand()/(double) RAND_MAX;
-        std::cout << "Number is : " << jj << std::endl;
+        //std::cout << "Number is : " << jj << std::endl;
+        
+        countingSize = 0;
+        std::cout << "Random Name: (" << ranName<<")" << std::endl;
+        //std::cout << "Position: " << position << std::endl;
         for (auto const &loop: lookup){
             
             std::string word = loop.first.substr(0, ranSize);
-            std::string ranHolder = ranName.substr(jj, ranSize);
+            std::string ranHolder = ranName.substr(position, ranSize);
             std::vector<Pattern*> v = loop.second;
-            std::cout << "(" << ranName<<")" << std::endl;
             
-            //jj++;
+            //std::cout << "word: (" << word<<")" << "ranHolder: (" << ranHolder<<")" << std::endl;
+            
             if (word == ranHolder){
-                
+                jj++;
                 for (auto const &pool: v){
-                    std::string placeHolder = pool->getString().substr(position, 1);
-                    position ++;
-                    std::cout << "(" << pool->getString()<<")" << std::endl;
-                    std::cout << "Cum: " << position << std::endl;
+                    std::string placeHolder = pool->getString().substr(ranSize, sizeOfPattern);
+                    //std::cout << "Vector String: (" << pool->getString()<<")" << std::endl;
+                    //std::cout << "Place Holder: " << placeHolder << std::endl;
+                    //std::cout << "Cum: " << jj << std::endl;
                     if (ranNum< pool->getCum()){
-                        if (placeHolder == " ")
-                            ranName += " ";
-                        else
-                            ranName += placeHolder;
-                        //break;
+                        ranName += placeHolder;
+                        position =ranName.length()-ranSize;
+                        break;
                     }
                 }
                 break;
             }
+            else {
+                countingSize ++;
+            }
         }
-        jj++;
+        
+        if ( jj == 100){
+            break;
+        }
+        std::cout << std::endl;
+        //ranSize = ranName.length();
     }
     
-    std::cout << "The word is: " << ranName << std::endl;
+    std::cout << "\n" << ranName << std::endl;
      
      
     in.close();
