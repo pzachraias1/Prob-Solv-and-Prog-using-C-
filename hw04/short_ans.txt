@@ -22,7 +22,7 @@ int a[128];
 How would you pass a sub-array containing only the third through sixth elements of a to the
 function f?
 
-f(a, 128);
+ f(a+2,4)
 
 6. What is wrong with the following code, and how would you fix it?
   char copy[8];
@@ -32,7 +32,7 @@ f(a, 128);
   }
   printf("%s\n", copy);
 
-there is nothing wrong with the code. Since, inside the for loop, the “string[i]!=’\0’” is showing that end the loop when there is no more value or when the string reach a null terminated, end the loop
+The null terminator does not get copy to the char array copy. To fix it, i would make the second to last index of the char array be the null terminator.
 
 8. What is wrong with the following code and how would you fix it?
     double* allocateArray(int length) {
@@ -40,4 +40,4 @@ there is nothing wrong with the code. Since, inside the for loop, the “string[
         return array;
 }
 
-The array inside the function will go out of scoop. To fix it, I would change the inside of the function to return a new array
+The array inside the function will go out of scope. To fix it, I would change the inside of the function to return a new array
